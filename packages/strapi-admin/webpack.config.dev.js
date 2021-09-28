@@ -13,7 +13,7 @@ module.exports = () => {
   // to display the tree map of modules
   const env = analyzeBundle ? 'production' : 'development';
   const options = {
-    backend: 'http://localhost:1337',
+    backend: 'https://server.ddev.site:3001',
     publicPath: '/admin/',
     features: process.env.ENABLED_EE_FEATURES || ['sso'],
   };
@@ -36,6 +36,8 @@ module.exports = () => {
     ...config,
     devServer: {
       port: 4000,
+      host: '0.0.0.0',
+      disableHostCheck: true,
       clientLogLevel: 'none',
       quiet: true,
       historyApiFallback: {
